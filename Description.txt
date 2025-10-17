@@ -1,0 +1,51 @@
+Guideline for Scraping
+Target Domain: daily_life
+Subdomains: 
+•	Home care, cleaning, storage, stain removal,
+•	Cooking Tips, food knowledge, food preservation
+•	Health tips and personal care (natural remedies, common treatments)
+•	DIY, handcrafts, product repurposing and usage
+•	Odor removal, home environment improvement
+•	Healthy drink tips, allergy-safe substitute tips
+Data Requirements:
+•	Data must be in JSONL format, each entry is a JSON object.
+•	Each JSONL file must contain at least 10,000 entries, encoded in UTF-8.
+•	Each entry must have more than 200 characters. (Excluding image tags)
+•	No truncated paragraphs.
+•	Each entry must contain a single topic only, no mixed themes.
+•	Text must be coherent, no garbled characters.
+•	Symbols & Formatting:
+o	No artistic fonts, emojis, or special symbols.
+o	No more than 1 consecutive line break allowed. (\n, not \n\n)
+o	No abnormal spaces or indentations.
+o	Consistent punctuation (no mixing Chinese/English punctuation).
+•	No advertisements, HTML tags, navigation bars, buttons, or menus.
+•	No copyright disclaimers.
+•	No illegal, unsafe, or sensitive content.
+•	Text conversion:
+o	All content must be converted into plain text.
+o	Formulas and tables must be converted into LaTeX format.
+o	Images must be preserved as links, inline with the text, both in “text” and “content”. (e.g. ……[image: https:….. ]…..)
+o	Anonymization: All personally identifiable information must be anonymized.
+This includes: addresses, emails, phone numbers, birth dates, passport/ID/driver’s license/bank card numbers, and social media IDs (WeChat, Weibo, TikTok, etc.).
+Method: Replace with lowercase x characters (not deletion).
+•	 Each JSONL entry should contain the following fields:
+o	ID: MD5 hash with URL as input
+o	Text: (Title\nFull article content here…)
+o	meta: {
+data_info:{
+	lang: “en”
+	url
+	source: (website name)
+	type: “Article”
+	processing_date: “YYYY-MM-DD”
+	delivery_version: “V1.0” (if need rescrape, then it will become V2.0 on that rescrape)
+	title
+	content: (only article text content)
+	content_info: {
+	domain: “daily_life”
+	subdomain:
+}
+}
+
+Google sheet link: https://docs.google.com/spreadsheets/d/1xzOdSKVVqNeqLTL_U9zgVRwbxcc7PFJSj_fhS4OjtUo/edit?gid=309683548#gid=309683548
